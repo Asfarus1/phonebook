@@ -51,7 +51,7 @@ public class UserController {
     @RequestMapping(value = "create", method = GET)
     public String create(Model model) {
 
-        model.addAttribute("title", "Create");
+        model.addAttribute("title", "Создание");
         model.addAttribute("id", null);
         model.addAttribute("form", new UserForm());
 
@@ -76,7 +76,7 @@ public class UserController {
             return "redirect:/#" + userModel.getId();
         }
 
-        model.addAttribute("title", "Create");
+        model.addAttribute("title", "Создание");
         model.addAttribute("id", null);
 
         return "user/form";
@@ -95,7 +95,7 @@ public class UserController {
 
         model.addAttribute("form", fillForm(userModel));
 
-        model.addAttribute("title", "Update");
+        model.addAttribute("title", "Редактирование");
 
         return "user/form";
     }
@@ -123,7 +123,7 @@ public class UserController {
             return "redirect:/#" + userModel.getId();
         }
 
-        model.addAttribute("title", "Update");
+        model.addAttribute("title", "Редактирование");
 
         return "user/form";
     }
@@ -175,7 +175,7 @@ public class UserController {
         form.setPhone(model.getPhone());
         form.setCity(model.getStreet().getCity().getTitle());
         form.setStreet(model.getStreet().getTitle());
-
+        form.getPage();
         return form;
     }
 }
