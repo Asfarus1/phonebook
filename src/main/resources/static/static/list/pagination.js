@@ -28,10 +28,9 @@
         if(indexFrom>0) {
             $pagination.append(
                 $('<li />')
-                    .addClass(page == 0 ? 'disabled' : '')
                     .append(
                     $('<a />')
-                        .attr({href: '?page=0', title: 'Previous'})
+                        .attr({href: '?page=0'})
                         .html('<span aria-hidden="true">&laquo; Первая</span>')
                 )
             );
@@ -52,10 +51,9 @@
         if(indexTo<size) {
             $pagination.append(
                 $('<li />')
-                    .addClass(page == size ? 'disabled' : '')
                     .append(
                     $('<a />')
-                        .attr({href: '?page=' + (size - 1), title: 'Next'})
+                        .attr({href: '?page=' + (size - 1)})
                         .html('<span aria-hidden="true">Последняя &raquo;</span>')
                 )
             );
