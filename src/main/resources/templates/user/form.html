@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title + ' записи'}" />
+
+    <link rel="stylesheet" th:href="@{/static/lib/jquery-ui/jquery-ui.min.css}" />
+    <link rel="stylesheet" th:href="@{/static/lib/jquery-ui/jquery-ui.theme.min.css}" />
+
+    <link rel="stylesheet" th:href="@{/static/css/stl.css}" />
+
+    <script th:src="@{/static/lib/jquery/jquery-2.2.1.min.js}"></script>
+    <script th:src="@{/static/lib/jquery-ui/jquery-ui.min.js}"></script>
+
+    <script th:src="@{/static/user/user.js}"></script>
+</head>
+<body>
+    <a class="btn btn-blue" href="/">назад</a>
+    <h1 th:text="${title + ' записи'}" />
+
+    <form th:object="${form}" method="post">
+
+        <div class="form-field" th:classappend="${#fields.hasErrors('name')}? has-error">
+            <label>Имя</label>
+            <input type="text" th:field="*{name}"/>
+            <p class="error-text" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"/>
+        </div>
+
+        <div class="form-field" th:classappend="${#fields.hasErrors('surname')}? has-error">
+            <label>Фамилия</label>
+            <input type="text" th:field="*{surname}"/>
+            <p class="error-text" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"/>
+        </div>
+
+        <div class="form-field" th:classappend="${#fields.hasErrors('fatherName')}? has-error">
+            <label>Отчество</label>
+            <input type="text" th:field="*{fatherName}"/>
+            <p class="error-text" th:if="${#fields.hasErrors('fatherName')}" th:errors="*{fatherName}"/>
+        </div>
+
+        <div class="form-field" th:classappend="${#fields.hasErrors('birthDate')}? has-error">
+            <label>Дата рождения</label>
+            <input type="text" th:field="*{birthDate}"/>
+            <p class="error-text" th:if="${#fields.hasErrors('birthDate')}" th:errors="*{birthDate}"/>
+        </div>
+
+        <div class="form-field" th:classappend="${#fields.hasErrors('phone')}? has-error">
+            <label>Номер телефона</label>
+            <input type="text" th:field="*{phone}"/>
+            <p class="error-text" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"/>
+        </div>
+
+        <div class="form-field" th:classappend="${#fields.hasErrors('city')}? has-error">
+            <label>Город</label>
+            <input type="text" th:field="*{city}"/>
+            <p class="error-text" th:if="${#fields.hasErrors('city')}" th:errors="*{city}"/>
+        </div>
+
+        <div class="form-field" th:classappend="${#fields.hasErrors('street')}? has-error">
+            <label>Улица</label>
+            <input type="text" th:field="*{street}"/>
+            <p class="error-text" th:if="${#fields.hasErrors('street')}" th:errors="*{street}"/>
+        </div>
+
+        <button type="submit" class="btn btn-blue">сохранить</button>
+    </form>
+</body>
+</html>

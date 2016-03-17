@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Телефонный справочник</title>
+    <link rel="stylesheet" th:href="@{/static/css/stl.css}" />
+    <script th:src="@{/static/lib/jquery/jquery-2.2.1.min.js}"></script>
+    <script th:src="@{/static/list/pagination.js}"></script>
+</head>
+<body>
+    <h1>Телефонный справочник</h1>
+
+        <p>
+            <a href="create" class="btn btn-blue">создать</a>
+        </p>
+
+        <table id="data">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Имя</th>
+                    <th>Фамилия</th>
+                    <th>Отчество</th>
+                    <th>Дата рождения</th>
+                    <th>Город</th>
+                    <th>Улица</th>
+                    <th>Телефон</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:if="${data.content.empty}">
+                    <td colspan="8"><b class="text-center">Записи отсутствуют</b></td>
+                </tr>
+                <tr th:each="user : ${data.content}">
+                    <td>
+                        <a th:name="${user.id}"></a>
+
+                        <a th:href="${'update?id=' + user.id}" class="btn btn-grey btn-edit"/>
+
+                        <a th:href="${'delete?id=' + user.id}" onclick="return confirm('Удалить запись?')" class="btn btn-grey btn-delete"/>
+                    </td>
+                    <td th:text="${user.name}"></td>
+                    <td th:text="${user.surname}"></td>
+                    <td th:text="${user.fatherName}"></td>
+                    <td th:text="${#dates.format(user.birthDate, 'dd.MM.yyyy')}" class="text-center"></td>
+                    <td th:text="${user.street.city.title}"></td>
+                    <td th:text="${user.street.title}"></td>
+                    <td th:text="${user.phone}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="pagination-container" th:attr="data-page=${data.number},data-size=${data.getTotalPages()}"></div>
+
+        <!--<ul class="pagination">-->
+            <!--<li>-->
+                <!--<a th:href="${'?page=' + (data.number - 1)}" aria-label="Previous">-->
+                    <!--<span aria-hidden="true">&laquo;</span>-->
+                <!--</a>-->
+            <!--</li>-->
+            <!--<li><a href="#">1</a></li>-->
+            <!--<li><a href="#">2</a></li>-->
+            <!--<li><a href="#">3</a></li>-->
+            <!--<li><a href="#">4</a></li>-->
+            <!--<li><a href="#">5</a></li>-->
+            <!--<li>-->
+                <!--<a th:href="${'?page=' + (data.number + 1)}" aria-label="Next">-->
+                    <!--<span aria-hidden="true">&raquo;</span>-->
+                <!--</a>-->
+            <!--</li>-->
+        <!--</ul>-->
+</body>
+</html>

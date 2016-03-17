@@ -1,0 +1,155 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font: 16px/20px sans-serif;
+    min-width: 960px;
+    max-width: 1600px;
+    padding: 0 20px;
+    margin: 20px auto 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    color: #6e6e6e;
+    margin: 20px 0;
+    font-size: 2em;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+}
+
+th {
+    text-align: center;
+    color: #171717;
+}
+
+th, td {
+    border-left: 1px solid #cfcfcf;
+    padding: 10px 5px;
+}
+
+th:first-child, td:first-child {
+    border: none;
+}
+
+thead tr {
+    background: #E4E4E4;
+}
+
+tr:nth-child(even) {
+    background: #f4f4f4;
+}
+
+.text-center {
+    text-align: center;
+}
+.btn {
+    border-radius: 5px;
+    display: inline-block;
+    line-height: 30px;
+    padding: 0 5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+}
+.btn-blue {
+    border: 2px solid #0000ff;
+    color: #0000ff;
+}
+
+.btn-blue:hover {
+    background: #0000ff;
+    color: #fff;
+}
+
+.btn-add:before {
+    content: '+';
+    font-size: 22px;
+    vertical-align: middle;
+}
+
+.btn-edit:before {
+    content: "\270f";/*карандаш*/
+    transform: rotate(130deg);
+    display: inline-block;
+}
+
+.btn-delete:before {
+    content: "\d7";/*крестик*/
+    display: inline-block;
+    color: #ff0000;
+    font-size: 20px;
+}
+
+.btn-grey {
+    padding: 0;
+    border: 1px solid #9b9b9b;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    margin: 3px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.btn-grey:hover {
+    background: none;
+    border: 1px solid #0000ff;
+}
+
+input {
+    width: 50%;
+    border-radius: 4px;
+    height: 30px;
+    border: 1px solid #a1a1a1;
+    padding: 0 5px;
+
+}
+
+.short-field {
+    width: 150px;
+}
+
+button {
+    background: #ffffff;
+    margin: 20px 0;
+}
+
+label {
+    color: #1f1f1f;
+    display: block;
+}
+
+.form-field {
+    margin-bottom: 10px;
+}
+
+.pagination {
+    list-style: none;
+    overflow: hidden;
+}
+
+.pagination li {
+    float: left;
+}
+
+.pagination li a {
+    padding: 0 5px;
+}
+
+.error-text {
+    color: #ff0000;
+}
+
+.active {
+    font-weight:bold;
+}

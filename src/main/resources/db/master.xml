@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+		xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
+
+	<changeSet id="create_table_city" author="">
+		<createTable tableName="city">
+			<column name="id" type="bigint" autoIncrement="true">
+				<constraints primaryKey="true" nullable="false"/>
+			</column>
+			<column name="title" type="varchar(150)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+
+		<createIndex tableName="city" indexName="city_idx_title">
+			<column name="title" />
+		</createIndex>
+	</changeSet>
+
+	<changeSet id="create_table_street" author="">
+		<createTable tableName="street">
+			<column name="id" type="bigint" autoIncrement="true">
+				<constraints primaryKey="true" nullable="false"/>
+			</column>
+			<column name="city_id" type="bigint">
+				<constraints nullable="false" referencedTableName="city" referencedColumnNames="id" foreignKeyName="street_fk_city_id"/>
+			</column>
+			<column name="title" type="varchar(150)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+
+		<createIndex tableName="street" indexName="street_idx_city_id">
+			<column name="city_id"/>
+		</createIndex>
+		<createIndex tableName="street" indexName="street_idx_title">
+			<column name="title" />
+		</createIndex>
+	</changeSet>
+
+	<changeSet id="create_table_users" author="">
+		<createTable tableName="users">
+			<column name="id" type="bigint" autoIncrement="true">
+				<constraints primaryKey="true" nullable="false"/>
+			</column>
+			<column name="name" type="varchar(100)">
+				<constraints nullable="false" />
+			</column>
+			<column name="surname" type="varchar(100)">
+				<constraints nullable="false" />
+			</column>
+			<column name="father_name" type="varchar(100)">
+				<constraints nullable="false" />
+			</column>
+			<column name="birth_date" type="datetime">
+				<constraints nullable="false"/>
+			</column>
+			<column name="phone" type="varchar(20)">
+				<constraints nullable="false" />
+			</column>
+			<column name="street_id" type="bigint">
+				<constraints nullable="false" referencedTableName="street" referencedColumnNames="id" foreignKeyName="users_fk_street_id"/>
+			</column>
+		</createTable>
+
+		<createIndex tableName="users" indexName="users_idx_street_id">
+			<column name="street_id"/>
+		</createIndex>
+	</changeSet>
+
+</databaseChangeLog>
