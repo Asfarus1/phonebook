@@ -50,4 +50,6 @@ public class UserForm {
     @NotBlank(groups = Order1.class, message = emptyMsg)
     @Length(min = 2, max = 150, groups = Order2.class, message = invalidLenghtMsg2to150)
     private String street;
+
+    private int page;
 }
