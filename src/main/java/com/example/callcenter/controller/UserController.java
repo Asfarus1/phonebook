@@ -55,7 +55,7 @@ public class UserController {
         model.addAttribute("id", null);
         model.addAttribute("form", new UserForm());
 
-        return "user/form";
+        return "user/form" ;
     }
 
     @RequestMapping(value = "create", method = POST)
